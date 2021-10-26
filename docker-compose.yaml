@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  surfshark-proxy:
+    build: ./
+    env_file: .env
+    volumes:
+      - .:/surfshark_proxy:delegated
+    ports:
+      - 8888:8888
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
